@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloggers</title>
+    <link rel="stylesheet" href="{% static 'css/bloggers.css' %}" type="text/css">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>№</th>
+            <th>Nick</th>
+            <th>Reputation</th>
+            <th>Registration date</th>
+            <th>Subscribers count</th>
+            <th>Profit</th>
+        </tr>
+    {% for blogger in bloggers %}
+        <tr>
+            <td>{{ blogger.id }}</td>
+            <td>{{ blogger.nick }}</td>
+            <td>{{ blogger.reputation }}</td>
+            <td>{{ blogger.registration_date }}</td>
+            <td>{{ blogger.subscribers_count }}</td>
+            <td>{{ blogger.profit }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
