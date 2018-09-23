@@ -1,19 +1,17 @@
 from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from DjangoTest.models import Blogger
 
-def login(request):
-    pass
+
+class Profile(LoginRequiredMixin, TemplateView):
+    template_name = 'accounts/profile.html'
+    redirect_field_name = ''
 
 
-class Login(TemplateView):
-    template_name = 'login.html'
-
-
-class Blogger(ListView):
+class Blogger(PermissionRequiredMixin, ListView):
+    permission_required = 'view_blogger'
     template_name = 'bloggers.html'
     queryset = Blogger.objects.all()
     context_object_name = 'bloggers'
-
 
