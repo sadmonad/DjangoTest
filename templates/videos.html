@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Videos</title>
+    <link rel="stylesheet" href="{% static 'css/videos.css' %}" type="text/css">
+</head>
+<body>
+{% include 'shared/navbar.html' %}
+<br>
+    <table>
+        <tr>
+            <th>№</th>
+            <th>Caption</th>
+            <th>Uploaded</th>
+            <th>Duration, min</th>
+            <th>Genre</th>
+            <th>Views count</th>
+            <th>Likes count</th>
+            <th>Comments count</th>
+            <th>Is private</th>
+        </tr>
+    {% for video in videos %}
+        <tr>
+            <td>{{ video.id }}</td>
+            <td>{{ video.caption }}</td>
+            <td>{{ video.uploading_date }}</td>
+            <td>{{ video.duration_min }}</td>
+            <td>{{ video.genre }}</td>
+            <td>{{ video.views_count }}</td>
+            <td>{{ video.likes_count }}</td>
+            <td>{{ video.comments_count }}</td>
+            <td>{{ video.is_private }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
