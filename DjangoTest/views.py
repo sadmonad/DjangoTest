@@ -1,28 +1,23 @@
 from django.views.generic import TemplateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from DjangoTest.models import Blogger, Video
-#from django_registration.backends.activation.urls import
 from django_registration.backends.activation.views import RegistrationView, ActivationView
 from django.urls import reverse_lazy
 
 
 class MyRegistrationView(RegistrationView):
-    template_name = 'accounts/login.html'
-    email_subject_template = 'accounts/registration/activation_email_subject.txt'
-    email_body_template = 'accounts/registration/activation_email.txt'
+    template_name = 'profile/templates/login.html'
+    email_subject_template = 'activation/templates/activation_email_subject.txt'
+    email_body_template = 'activation/templates/activation_email.txt'
     success_url = reverse_lazy('registration_complete')
 
 
 class AccountActivatedView(TemplateView):
-    template_name = 'accounts/registration/account_activated.html'
+    template_name = 'activation/templates/account_activated.html'
 
 
 class RegistrationCompleteView(TemplateView):
-    template_name = 'accounts/registration/registration_complete.html'
-
-
-class ActivationCompleteView(TemplateView):
-    template_name = 'accounts/registration/account_activated.html'
+    template_name = 'registration/templates/registration_complete.html'
 
 
 class MyActivationView(ActivationView):
@@ -30,19 +25,19 @@ class MyActivationView(ActivationView):
 
 
 class Profile(LoginRequiredMixin, TemplateView):
-    template_name = 'accounts/profile.html'
+    template_name = 'profile/templates/profile.html'
     redirect_field_name = ''
 
 
 class Blogger(PermissionRequiredMixin, ListView):
     permission_required = 'view_blogger'
-    template_name = 'bloggers.html'
+    template_name = 'templates/bloggers.html'
     queryset = Blogger.objects.all()
     context_object_name = 'bloggers'
 
 
 class Video(PermissionRequiredMixin, ListView):
     permission_required = 'view_video'
-    template_name = 'videos.html'
+    template_name = 'templates/videos.html'
     queryset = Video.objects.all()
     context_object_name = 'videos'

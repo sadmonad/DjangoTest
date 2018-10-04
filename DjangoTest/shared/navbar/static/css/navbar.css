@@ -46,7 +46,6 @@
 #cssmenu #bg-two {
   height: 59px;
   z-index: 2;
-  background: url('images/bg.png');
 }
 #cssmenu #bg-three {
   bottom: 4px;
@@ -64,7 +63,6 @@
   bottom: 4px;
   height: 55px;
   z-index: 4;
-  background: url('images/bg.png');
 }
 #cssmenu ul {
   height: 59px;
@@ -101,6 +99,5 @@
 }
 #cssmenu ul li a:hover,
 #cssmenu ul li.active > a {
-  background: url('images/bg.png');
   color: #ffffff;
 }
