@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from DjangoTest.videos.models import Video
 
 
-class Video(PermissionRequiredMixin, ListView):
+class VideoView(PermissionRequiredMixin, ListView):
     permission_required = 'view_video'
     template_name = 'templates/videos.html'
     queryset = Video.objects.all()

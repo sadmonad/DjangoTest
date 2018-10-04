@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^accounts/activate/(?P<activation_key>[-:\w]+)/$', activation_views.MyActivationView.as_view(), name='activate'),
     path('accounts/activate/complete', activation_views.AccountActivatedView.as_view(), name='activation_complete'),
 
-    path('bloggers/', bloggers_views.Blogger.as_view(), name='bloggers'),
-    path('videos/', videos_views.Video.as_view(), name='videos'),
+    path('bloggers/', bloggers_views.BloggerView.as_view(), name='bloggers'),
+    path('videos/', videos_views.VideoView.as_view(), name='videos'),
     path('admin/', admin.site.urls),
 ]
