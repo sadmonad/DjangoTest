@@ -20,6 +20,11 @@ urlpatterns = [
     path('accounts/activate/complete', activation_views.AccountActivatedView.as_view(), name='activation_complete'),
 
     path('bloggers/', bloggers_views.BloggerView.as_view(), name='bloggers'),
+    path('bloggers/add', bloggers_views.BloggerCreateView.as_view(), name='create_blogger'),
+    path('bloggers/<slug:nick>', bloggers_views.BloggerDetailView.as_view(), name='blogger_detail'),
+    path('bloggers/<slug:nick>/update', bloggers_views.BloggerUpdateView.as_view(), name='update_blogger'),
+    path('bloggers/<slug:nick>/delete', bloggers_views.BloggerDeleteView.as_view(), name='delete_blogger'),
+
     path('videos/', videos_views.VideoView.as_view(), name='videos'),
     path('admin/', admin.site.urls),
 ]

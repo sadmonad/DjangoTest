@@ -13,19 +13,17 @@
         <tr>
             <th>№</th>
             <th>Nick</th>
-            <th>Reputation</th>
             <th>Registration date</th>
-            <th>Subscribers count</th>
-            <th>Profit</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     {% for blogger in bloggers %}
         <tr>
             <td>{{ blogger.id }}</td>
-            <td>{{ blogger.nick }}</td>
-            <td>{{ blogger.reputation }}</td>
+            <td><a href={% url 'blogger_detail' blogger.nick %}>{{ blogger.nick }}</a> </td>
             <td>{{ blogger.registration_date }}</td>
-            <td>{{ blogger.subscribers_count }}</td>
-            <td>{{ blogger.profit }}</td>
+            <td><a href={% url 'update_blogger' blogger.nick %}>Update</a></td>
+            <td><a href={% url 'delete_blogger' blogger.nick %}>Delete</a></td>
         </tr>
     {% endfor %}
     </table>

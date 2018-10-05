@@ -1,6 +1,7 @@
 from django.db import models
 from ..bloggers.models import Blogger
 
+
 class Video(models.Model):
     caption = models.CharField(max_length=30, null=False)
     uploading_date = models.DateTimeField(null=False)
