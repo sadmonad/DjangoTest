@@ -12,6 +12,7 @@ class BloggerView(PermissionRequiredMixin, ListView):
     template_name = 'templates/bloggers.html'
     queryset = Blogger.objects.all()
     context_object_name = 'bloggers'
+    redirect_field_name = ''
 
 
 class BloggerDetailView(DetailView):
