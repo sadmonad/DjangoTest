@@ -31,6 +31,7 @@ class BloggerCreateView(PermissionRequiredMixin, CreateView):
     model = Blogger
     fields = ['nick', 'reputation', 'registration_date', 'subscribers_count', 'profit']
     success_url = reverse_lazy('bloggers')
+    redirect_field_name = ''
 
 
 class BloggerUpdateView(PermissionRequiredMixin, UpdateView):
