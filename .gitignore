@@ -111,6 +111,3 @@ DjangoTest/migrations
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
-# django
-manage.py
