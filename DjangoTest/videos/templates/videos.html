@@ -20,11 +20,13 @@
             <th>Likes count</th>
             <th>Comments count</th>
             <th>Is private</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     {% for video in videos %}
         <tr>
             <td>{{ video.id }}</td>
-            <td>{{ video.caption }}</td>
+            <td><a href= {% url 'video_detail' video.id %}>{{ video.caption }}</a></td>
             <td>{{ video.uploading_date }}</td>
             <td>{{ video.duration_min }}</td>
             <td>{{ video.genre }}</td>
@@ -32,6 +34,8 @@
             <td>{{ video.likes_count }}</td>
             <td>{{ video.comments_count }}</td>
             <td>{{ video.is_private }}</td>
+            <td><a href= {% url 'update_video' video.id %}>Update</a></td>
+            <td><a href= {% url 'delete_video' video.id %}>Delete</a></td>
         </tr>
     {% endfor %}
     </table>
