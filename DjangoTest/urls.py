@@ -26,5 +26,10 @@ urlpatterns = [
     path('bloggers/<slug:nick>/delete', bloggers_views.BloggerDeleteView.as_view(), name='delete_blogger'),
 
     path('videos/', videos_views.VideoView.as_view(), name='videos'),
+    path('videos/add', videos_views.VideoCreateView.as_view(), name='create_video'),
+    path('videos/<int:pk>', videos_views.VideoDetailView.as_view(), name='video_detail'),
+    path('videos/<int:pk>/update', videos_views.VideoUpdateView.as_view(), name='update_video'),
+    path('videos/<int:pk>/delete', videos_views.VideoDeleteView.as_view(), name='delete_video'),
+
     path('admin/', admin.site.urls),
 ]
