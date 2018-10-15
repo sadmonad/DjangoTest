@@ -7,7 +7,7 @@
     <script src={% static 'js/navbar.js' %}></script>
 <div id='cssmenu'>
 <ul>
-   <li class='active'><a href='#'><span>{{ user.username }}
+   <li class='active'><a href={% url 'profile' %}><span>{{ user.username }}
        {% if user.is_staff %}
            (admin)
        {% endif %}
