@@ -11,7 +11,7 @@ from DjangoTest.videos import views as videos_views
 
 urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name='profile/templates/login.html'), name='login'),
-    path('accounts/profile/', profile_views.Profile.as_view()),
+    path('accounts/profile/', profile_views.ProfileView.as_view(), name='profile'),
 
     path('accounts/register/', registration_views.MyRegistrationView.as_view(), name='register'),
     path('accounts/register/complete', registration_views.RegistrationCompleteView.as_view(), name='registration_complete'),
@@ -22,6 +22,7 @@ urlpatterns = [
     path('bloggers/', bloggers_views.BloggerView.as_view(), name='bloggers'),
     path('bloggers/add', bloggers_views.BloggerCreateView.as_view(), name='create_blogger'),
     path('bloggers/<slug:nick>', bloggers_views.BloggerDetailView.as_view(), name='blogger_detail'),
+    path('bloggers/<slug:nick>/videos', bloggers_views.BloggerVideos.as_view(), name='blogger_videos'),
     path('bloggers/<slug:nick>/update', bloggers_views.BloggerUpdateView.as_view(), name='update_blogger'),
     path('bloggers/<slug:nick>/delete', bloggers_views.BloggerDeleteView.as_view(), name='delete_blogger'),
 

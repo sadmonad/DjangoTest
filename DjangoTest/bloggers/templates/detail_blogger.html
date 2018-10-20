@@ -4,4 +4,6 @@
     <p>Registration date: {{ blogger.registration_date }}</p>
     <p>Subscribers count: {{ blogger.subscribers_count }}</p>
     <p>Profit: {{ blogger.profit }}</p>
+    <hr>
+    <h3><a href={% url 'blogger_videos' blogger.nick %}>Blogger's videos</a></h3>
 </div>

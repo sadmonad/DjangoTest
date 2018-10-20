@@ -1,4 +1,5 @@
 {% load static %}
+{% load user_tags %}
 <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +8,7 @@
     <script src={% static 'js/navbar.js' %}></script>
 <div id='cssmenu'>
 <ul>
-   <li class='active'><a href='#'><span>{{ user.username }}
+   <li class='active'><a href={% url 'profile' %}><span>{{ user.username }}
        {% if user.is_staff %}
            (admin)
        {% endif %}

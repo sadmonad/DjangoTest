@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 
 from DjangoTest.bloggers.models import Blogger
+from DjangoTest.videos.models import Video
 
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -53,3 +54,14 @@ class BloggerDeleteView(PermissionRequiredMixin, DeleteView):
     slug_url_kwarg = 'nick'
     slug_field = 'nick'
     success_url = reverse_lazy('bloggers')
+
+
+class BloggerVideos(ListView):
+    context_object_name = 'videos'
+    template_name = 'templates/videos.html'
+    #queryset = Video.objects.
+
+    def get_queryset(self, *args, **kwargs):
+        blogger = Blogger.objects.get(nick=self.kwargs['nick'])
+        videos = Video.objects.filter(blogger_id=blogger.id)
+        return videos

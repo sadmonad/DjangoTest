@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'sadmonad',
         'USER': 'sadmonad',
         'PASSWORD': '',
-        'HOST': '18.218.95.115',
+        'HOST': '18.221.32.80',
         'PORT': '16384',
     }
 }
