@@ -59,6 +59,7 @@ class BloggerDeleteView(PermissionRequiredMixin, DeleteView):
 class BloggerVideos(ListView):
     context_object_name = 'videos'
     template_name = 'templates/videos.html'
+    #queryset = Video.objects.
 
     def get_queryset(self, *args, **kwargs):
         blogger = Blogger.objects.get(nick=self.kwargs['nick'])

@@ -1,0 +1,1 @@
+from DjangoTest.accounts.profile.models import Profile

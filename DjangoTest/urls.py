@@ -11,7 +11,7 @@ from DjangoTest.videos import views as videos_views
 
 urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name='profile/templates/login.html'), name='login'),
-    path('accounts/profile/', profile_views.Profile.as_view(), name='profile'),
+    path('accounts/profile/', profile_views.ProfileView.as_view(), name='profile'),
 
     path('accounts/register/', registration_views.MyRegistrationView.as_view(), name='register'),
     path('accounts/register/complete', registration_views.RegistrationCompleteView.as_view(), name='registration_complete'),
